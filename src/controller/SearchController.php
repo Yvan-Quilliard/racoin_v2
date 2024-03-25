@@ -1,11 +1,11 @@
 <?php
 
-namespace controller;
+namespace App\Controller;
 
-use model\Annonce;
-use model\Categorie;
+use App\Model\Annonce;
+use App\Model\Categorie;
 
-class Search {
+class SearchController {
 
     function show($twig, $menu, $chemin, $cat) {
         $template = $twig->load("search.html.twig");
@@ -19,7 +19,7 @@ class Search {
     }
 
     function research($array, $twig, $menu, $chemin, $cat) {
-        $template = $twig->load("index.html.twig");
+        $template = $twig->load("IndexController.html.twig");
         $menu = array(
             array('href' => $chemin,
                 'text' => 'Acceuil'),

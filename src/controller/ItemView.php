@@ -1,14 +1,17 @@
 <?php
 
-namespace controller;
-use AllowDynamicProperties;
-use model\Annonce;
-use model\Annonceur;
-use model\Departement;
-use model\Photo;
-use model\Categorie;
+namespace App\Controller;
 
-#[AllowDynamicProperties] class item {
+
+
+
+use App\Model\Annonce;
+use App\Model\Annonceur;
+use App\Model\Categorie;
+use App\Model\Departement;
+use App\Model\Photo;
+
+#[AllowDynamicProperties] class ItemView {
     public function __construct(){
     }
     function afficherItem($twig, $menu, $chemin, $n, $cat): void
@@ -25,7 +28,7 @@ use model\Categorie;
                 'text' => 'Acceuil'),
             array('href' => $chemin."/cat/".$n,
                 'text' => Categorie::find($this->annonce->id_categorie)?->nom_categorie),
-            array('href' => $chemin."/item/".$n,
+            array('href' => $chemin."/ItemView/".$n,
             'text' => $this->annonce->titre)
         );
 
